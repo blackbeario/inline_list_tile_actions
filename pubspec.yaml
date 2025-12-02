@@ -1,6 +1,6 @@
 name: inline_list_tile_actions
-description: A Flutter widget that displays inline expandable actions for ListTile items. Tap an icon to smoothly reveal action buttons without using slidable gestures.
-version: 0.1.0
+description: A Flutter widget that displays inline expandable actions for ListTile items. Tap an icon to smoothly reveal action buttons with inline or below positioning modes.
+version: 0.2.0
 homepage: https://github.com/blackbeario/inline_list_tile_actions
 repository: https://github.com/blackbeario/inline_list_tile_actions
 issue_tracker: https://github.com/blackbeario/inline_list_tile_actions/issues

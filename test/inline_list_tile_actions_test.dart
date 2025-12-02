@@ -62,6 +62,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: InlineListTileActions(
+              actionPosition: ActionPosition.below,
               actions: [
                 ActionItem(
                   icon: Icons.delete,
@@ -77,7 +78,7 @@ void main() {
         ),
       );
 
-      // Actions should not be visible initially
+      // Actions should not be visible initially (in below mode)
       expect(find.text('Delete'), findsNothing);
 
       // Tap the trigger icon
@@ -129,6 +130,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: InlineListTileActions(
+              actionPosition: ActionPosition.below,
               closeOnActionTap: true,
               actions: [
                 ActionItem(
@@ -155,7 +157,7 @@ void main() {
       await tester.tap(find.byIcon(Icons.delete));
       await tester.pumpAndSettle();
 
-      // Actions should be hidden
+      // Actions should be hidden (in below mode)
       expect(find.text('Delete'), findsNothing);
     });
 
