@@ -10,9 +10,7 @@ void main() {
           home: Scaffold(
             body: InlineListTileActions(
               actions: const [],
-              child: const ListTile(
-                title: Text('Test Title'),
-              ),
+              child: const ListTile(title: Text('Test Title')),
             ),
           ),
         ),
@@ -27,9 +25,7 @@ void main() {
           home: Scaffold(
             body: InlineListTileActions(
               actions: const [],
-              child: const ListTile(
-                title: Text('Test'),
-              ),
+              child: const ListTile(title: Text('Test')),
             ),
           ),
         ),
@@ -45,9 +41,7 @@ void main() {
             body: InlineListTileActions(
               triggerIcon: Icons.menu,
               actions: const [],
-              child: const ListTile(
-                title: Text('Test'),
-              ),
+              child: const ListTile(title: Text('Test')),
             ),
           ),
         ),
@@ -56,8 +50,9 @@ void main() {
       expect(find.byIcon(Icons.menu), findsOneWidget);
     });
 
-    testWidgets('expands and shows actions when trigger is tapped',
-        (WidgetTester tester) async {
+    testWidgets('expands and shows actions when trigger is tapped', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -70,9 +65,7 @@ void main() {
                   onPressed: () {},
                 ),
               ],
-              child: const ListTile(
-                title: Text('Test'),
-              ),
+              child: const ListTile(title: Text('Test')),
             ),
           ),
         ),
@@ -90,8 +83,9 @@ void main() {
       expect(find.byIcon(Icons.delete), findsOneWidget);
     });
 
-    testWidgets('executes action callback when action is tapped',
-        (WidgetTester tester) async {
+    testWidgets('executes action callback when action is tapped', (
+      WidgetTester tester,
+    ) async {
       bool actionPressed = false;
 
       await tester.pumpWidget(
@@ -105,9 +99,7 @@ void main() {
                   onPressed: () => actionPressed = true,
                 ),
               ],
-              child: const ListTile(
-                title: Text('Test'),
-              ),
+              child: const ListTile(title: Text('Test')),
             ),
           ),
         ),
@@ -124,45 +116,46 @@ void main() {
       expect(actionPressed, true);
     });
 
-    testWidgets('closes actions after tapping action when closeOnActionTap is true',
-        (WidgetTester tester) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: InlineListTileActions(
-              actionPosition: ActionPosition.below,
-              closeOnActionTap: true,
-              actions: [
-                ActionItem(
-                  icon: Icons.delete,
-                  label: 'Delete',
-                  onPressed: () {},
-                ),
-              ],
-              child: const ListTile(
-                title: Text('Test'),
+    testWidgets(
+      'closes actions after tapping action when closeOnActionTap is true',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: InlineListTileActions(
+                actionPosition: ActionPosition.below,
+                closeOnActionTap: true,
+                actions: [
+                  ActionItem(
+                    icon: Icons.delete,
+                    label: 'Delete',
+                    onPressed: () {},
+                  ),
+                ],
+                child: const ListTile(title: Text('Test')),
               ),
             ),
           ),
-        ),
-      );
+        );
 
-      // Expand the actions
-      await tester.tap(find.byIcon(Icons.more_vert));
-      await tester.pumpAndSettle();
+        // Expand the actions
+        await tester.tap(find.byIcon(Icons.more_vert));
+        await tester.pumpAndSettle();
 
-      expect(find.text('Delete'), findsOneWidget);
+        expect(find.text('Delete'), findsOneWidget);
 
-      // Tap the action
-      await tester.tap(find.byIcon(Icons.delete));
-      await tester.pumpAndSettle();
+        // Tap the action
+        await tester.tap(find.byIcon(Icons.delete));
+        await tester.pumpAndSettle();
 
-      // Actions should be hidden (in below mode)
-      expect(find.text('Delete'), findsNothing);
-    });
+        // Actions should be hidden (in below mode)
+        expect(find.text('Delete'), findsNothing);
+      },
+    );
 
-    testWidgets('keeps actions open when closeOnActionTap is false',
-        (WidgetTester tester) async {
+    testWidgets('keeps actions open when closeOnActionTap is false', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -175,9 +168,7 @@ void main() {
                   onPressed: () {},
                 ),
               ],
-              child: const ListTile(
-                title: Text('Test'),
-              ),
+              child: const ListTile(title: Text('Test')),
             ),
           ),
         ),
@@ -206,20 +197,10 @@ void main() {
                   label: 'Delete',
                   onPressed: () {},
                 ),
-                ActionItem(
-                  icon: Icons.share,
-                  label: 'Share',
-                  onPressed: () {},
-                ),
-                ActionItem(
-                  icon: Icons.edit,
-                  label: 'Edit',
-                  onPressed: () {},
-                ),
+                ActionItem(icon: Icons.share, label: 'Share', onPressed: () {}),
+                ActionItem(icon: Icons.edit, label: 'Edit', onPressed: () {}),
               ],
-              child: const ListTile(
-                title: Text('Test'),
-              ),
+              child: const ListTile(title: Text('Test')),
             ),
           ),
         ),
@@ -234,8 +215,9 @@ void main() {
       expect(find.text('Edit'), findsOneWidget);
     });
 
-    testWidgets('hides labels when showLabels is false',
-        (WidgetTester tester) async {
+    testWidgets('hides labels when showLabels is false', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -248,9 +230,7 @@ void main() {
                   onPressed: () {},
                 ),
               ],
-              child: const ListTile(
-                title: Text('Test'),
-              ),
+              child: const ListTile(title: Text('Test')),
             ),
           ),
         ),
@@ -264,8 +244,9 @@ void main() {
       expect(find.text('Delete'), findsNothing);
     });
 
-    testWidgets('uses column layout when specified',
-        (WidgetTester tester) async {
+    testWidgets('uses column layout when specified', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -277,15 +258,9 @@ void main() {
                   label: 'Delete',
                   onPressed: () {},
                 ),
-                ActionItem(
-                  icon: Icons.share,
-                  label: 'Share',
-                  onPressed: () {},
-                ),
+                ActionItem(icon: Icons.share, label: 'Share', onPressed: () {}),
               ],
-              child: const ListTile(
-                title: Text('Test'),
-              ),
+              child: const ListTile(title: Text('Test')),
             ),
           ),
         ),
@@ -302,10 +277,7 @@ void main() {
 
   group('ActionItem', () {
     test('creates action item with required parameters', () {
-      final action = ActionItem(
-        icon: Icons.delete,
-        onPressed: () {},
-      );
+      final action = ActionItem(icon: Icons.delete, onPressed: () {});
 
       expect(action.icon, Icons.delete);
       expect(action.label, null);

@@ -194,10 +194,9 @@ class InlineListTileActionsState extends State<InlineListTileActions>
     return Tween<Offset>(
       begin: Offset.zero,
       end: Offset(-clampedDistance, 0),
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-    ));
+    ).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
   }
 
   @override
@@ -281,10 +280,7 @@ class InlineListTileActionsState extends State<InlineListTileActions>
     );
 
     return action.tooltip != null
-        ? Tooltip(
-            message: action.tooltip!,
-            child: button,
-          )
+        ? Tooltip(message: action.tooltip!, child: button)
         : button;
   }
 
@@ -292,9 +288,7 @@ class InlineListTileActionsState extends State<InlineListTileActions>
     final actionWidgets = widget.actions.map(_buildActionButton).toList();
 
     return Container(
-      decoration: BoxDecoration(
-        color: widget.backgroundColor,
-      ),
+      decoration: BoxDecoration(color: widget.backgroundColor),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -488,26 +482,15 @@ class InlineListTileActionsState extends State<InlineListTileActions>
           ? Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(
-                  action.icon,
-                  color: action.foregroundColor,
-                  size: 20,
-                ),
+                Icon(action.icon, color: action.foregroundColor, size: 20),
                 const SizedBox(height: 4),
                 Text(
                   action.label!,
-                  style: TextStyle(
-                    fontSize: 10,
-                    color: action.foregroundColor,
-                  ),
+                  style: TextStyle(fontSize: 10, color: action.foregroundColor),
                 ),
               ],
             )
-          : Icon(
-              action.icon,
-              color: action.foregroundColor,
-              size: 20,
-            );
+          : Icon(action.icon, color: action.foregroundColor, size: 20);
 
       final button = action.backgroundColor != null
           ? Material(
@@ -533,10 +516,7 @@ class InlineListTileActionsState extends State<InlineListTileActions>
             );
 
       return action.tooltip != null
-          ? Tooltip(
-              message: action.tooltip!,
-              child: button,
-            )
+          ? Tooltip(message: action.tooltip!, child: button)
           : button;
     }).toList();
 
