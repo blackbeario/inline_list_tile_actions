@@ -2,6 +2,14 @@
 
 A Flutter widget that displays inline expandable actions for ListTile items. Tap an icon to smoothly reveal action buttons.
 
+## Preview
+
+### Inline Mode (Slide from right)
+![Inline Mode Demo](screenshots/inline_mode.png)
+
+### Below Mode (Expand below)
+![Below Mode Demo](screenshots/below_mode.png)
+
 ## Features
 
 - **Smooth Animations**: Uses `AnimatedSize` for smooth expand/collapse transitions
